@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetris Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="game-wrapper">
+            <div class="game-board" id="gameBoard"></div>
+            <div class="sidebar">
+                <div class="info-panel">
+                    <h1>TETRIS</h1>
+                    <div class="next-piece">
+                        <h3>Next Piece</h3>
+                        <div class="next-preview" id="nextPreview"></div>
+                    </div>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <p class="stat-label">Score</p>
+                            <p class="stat-value" id="score">0</p>
+                        </div>
+                        <div class="stat-item">
+                            <p class="stat-label">Level</p>
+                            <p class="stat-value" id="level">1</p>
+                        </div>
+                        <div class="stat-item">
+                            <p class="stat-label">Lines</p>
+                            <p class="stat-value" id="lines">0</p>
+                        </div>
+                    </div>
+                    <div class="controls">
+                        <button id="startBtn" class="btn btn-primary">Start Game</button>
+                        <button id="pauseBtn" class="btn btn-secondary" disabled>Pause</button>
+                        <button id="resetBtn" class="btn btn-secondary">Reset</button>
+                    </div>
+                    <div class="instructions">
+                        <h4>Controls</h4>
+                        <p>← → Move</p>
+                        <p>↓ Fall Faster</p>
+                        <p>Space Rotate</p>
+                        <p>P Pause</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="game-over-modal" id="gameOverModal">
+            <div class="modal-content">
+                <h2>Game Over!</h2>
+                <p>Your Score: <span id="finalScore">0</span></p>
+                <p>Level: <span id="finalLevel">1</span></p>
+                <button class="btn btn-primary" onclick="location.reload()">Play Again</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
