@@ -295,17 +295,24 @@ class Tetris {
     }
 
     gameLoop() {
-        const interval = setInterval(() => {
+        let lastDropTime = 0;
+
+        const loop = () => {
             if (!this.gameRunning) {
-                clearInterval(interval);
                 return;
             }
 
-            if (!this.gamePaused) {
+            const now = Date.now();
+            if (!this.gamePaused && now - lastDropTime >= this.dropSpeed) {
                 this.movePiece(0, 1);
-                this.render();
+                lastDropTime = now;
             }
-        }, this.dropSpeed);
+
+            this.render();
+            requestAnimationFrame(loop);
+        };
+
+        requestAnimationFrame(loop);
     }
 
     endGame() {
